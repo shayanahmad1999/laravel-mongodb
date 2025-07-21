@@ -16,3 +16,7 @@ Route::get('/ping', function () {
         return response()->json(['msg' => 'Could not connect to MongoDB: ' . $e->getMessage()]);
     }
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
