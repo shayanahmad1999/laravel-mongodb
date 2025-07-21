@@ -38,4 +38,8 @@ class Post extends Model
         return $this->likes()->count();
     }
 
+    public function scopeMostLiked($query) {
+        return $query->withCount('likes')->orderBy('likes_count', 'desc');
+    }
+
 }
