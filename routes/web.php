@@ -37,14 +37,14 @@ Route::controller(PostController::class)
         Route::delete('/{post}/destroy','destroy')->name('destroy');
     });
 
-Route::get('/profiles/{user}', [ProfileController::class, 'index'])->name('profile.index');
-Route::get('/profiles/{user}/edit', [ProfileController::class, 'edit'])->name('profile.edit');
-Route::patch('/profiles/{user}', [ProfileController::class, 'update'])->name('profile.update');
+Route::get('/profile/{user}', [ProfileController::class, 'index'])->name('profile.show');
+Route::get('/profile/{user}/edit', [ProfileController::class, 'edit'])->name('profile.edit');
+Route::patch('/profile/{user}', [ProfileController::class, 'update'])->name('profile.update');
 
-Route::post('/posts/{post}/comments', [CommentController::class, 'store'])->name('comment.store');
-Route::delete('/comments/{comment}', [CommentController::class, 'destroy'])->name('comment.destroy');
+Route::post('/posts/{post}/comments', [CommentController::class, 'store'])->name('comments.store');
+Route::delete('/comments/{comment}', [CommentController::class, 'destroy'])->name('comments.destroy');
 
-Route::post('/posts/{post}/likes', [LikeController::class, 'store'])->name('like.store');
-Route::delete('/posts/{post}/likes', [LikeController::class, 'destroy'])->name('like.destroy');
+Route::post('/posts/{post}/likes', [LikeController::class, 'store'])->name('likes.store');
+Route::delete('/posts/{post}/likes', [LikeController::class, 'destroy'])->name('likes.destroy');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
