@@ -108,9 +108,9 @@ php artisan serve
 
 ```
 
-## Or Setup New Project Laravel With mongooDB
+# Or Setup New Project Laravel With mongoDB
 
-# 🚀 Laravel + MongoDB Integration Guide
+## 🚀 Laravel + MongoDB Integration Guide
 
 This project integrates the Laravel framework with MongoDB for robust, scalable, and flexible NoSQL data handling.
 
