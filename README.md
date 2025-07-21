@@ -96,7 +96,7 @@ DB_DATABASE=yourDatabaseName
 -   Paste it into `.env` as shown above
 
 ---
-
+```
 # Run database migrations
 
 php artisan migrate --seed
