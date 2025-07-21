@@ -57,7 +57,8 @@ class ProfileController extends Controller
 
         $user->update($data);
 
-        return redirect("/profiles/{$user->id}");
+        return to_route('profile.show', $user->id);
+
     }
 
 }

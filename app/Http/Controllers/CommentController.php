@@ -20,10 +20,10 @@ class CommentController extends Controller
 
         $post->comments()->create([
             'comment' => $data['comment'],
-            'user_id' => auth()->id
+            'user_id' => auth()->id()
         ]);
 
-        return redirect('/posts/'.$post->id);
+        return to_route('posts.show', $post->id);
     }
 
     public function destroy(Comment $comment){
@@ -33,6 +33,6 @@ class CommentController extends Controller
         $postId = $comment->post_id;
         $comment->delete();
 
-        return redirect('/posts/'.$postId);
+        return to_route('posts.show', $postId);
     }
 }

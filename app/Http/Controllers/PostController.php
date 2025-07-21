@@ -56,7 +56,7 @@ class PostController extends Controller
             'image_path' =>$imagePath,
         ]);
 
-        return redirect('/profile/'.$this->user_id());
+        return to_route('profile.show', $this->user_id());
     }
 
     /**
@@ -89,7 +89,7 @@ class PostController extends Controller
 
         $post->update($data);
 
-        return redirect('/posts/'.$post->id);
+        return to_route('posts.show', $post->id);
     }
 
     /**
@@ -102,7 +102,7 @@ class PostController extends Controller
         Storage::disk('public')->delete($post->image_path);
 
         $post->delete();
-
-         return redirect('/profile/'.$this->user_id());
+        
+        return to_route('profile.show', $this->user_id());
     }
 }
