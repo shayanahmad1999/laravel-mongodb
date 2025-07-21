@@ -4,6 +4,7 @@ use App\Http\Controllers\CommentController;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
+use App\Models\Post;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use MongoDB\Client;
@@ -11,6 +12,10 @@ use MongoDB\Client;
 Route::get('/', [PostController::class,'index'])
     ->middleware('auth')    
     ->name('home');
+
+Route::get('/test/posts', function () {
+    return Post::all();
+});
 
 Route::get('/ping', function () {
     try {
