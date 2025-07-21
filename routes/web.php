@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
+use MongoDB\Client;
 
 Route::get('/', function () {
     return view('welcome');
@@ -9,7 +9,8 @@ Route::get('/', function () {
 
 Route::get('/ping', function () {
     try {
-        DB::connection('mongodb')->getPdo();
+        $client = new Client(env('DB_HOST'));
+        $client->listDatabases(); // Forces a connection
         return response()->json(['msg' => 'MongoDB is accessible!']);
     } catch (\Exception $e) {
         return response()->json(['msg' => 'Could not connect to MongoDB: ' . $e->getMessage()]);
