@@ -143,23 +143,23 @@ Route::get('/ping', function () {
 
 ### 6. 🧱 Sample MongoDB Model
 
-Create a model with `Jenssegers\Mongodb\Eloquent\Model`:
+Create a model with `MongoDB\Laravel\Eloquent\Model;`:
 
 ```php
-use Jenssegers\Mongodb\Eloquent\Model;
+use MongoDB\Laravel\Eloquent\Model;
 
-class User extends Model
+class Post extends Model
 {
     protected $connection = 'mongodb';
-    protected $collection = 'users';
+    protected $collection = 'posts';
 }
 ```
 
 Then test it with a route:
 
 ```php
-Route::get('/users', function () {
-    return User::all();
+Route::get('/test/posts', function () {
+    return Post::all();
 });
 ```
 
@@ -173,18 +173,9 @@ php artisan serve
 
 ---
 
-## 🧠 Notes
-
--   Migrations are not supported by MongoDB in the traditional sense — consider using raw collections or manual setup.
--   Eloquent relationships can work but may have limited join support.
--   Ideal for apps needing flexible schemas (e.g. LMS, rating systems, analytics dashboards).
-
----
-
 ## ✨ Credits
 
 -   Laravel Framework
--   Jenssegers MongoDB Package
 -   MongoDB Atlas
 
 ---
